@@ -118,7 +118,10 @@ const gameStyles = StyleSheet.create({
         width: 362,
         height: 362,
         borderWidth: 1,
-        borderColor: '#000'
+        borderColor: '#000',
+        shadowOffset: {width: 1, height: 1},
+        shadowRadius: 2,
+        shadowOpacity: 0.35
     },
     box: {
         justifyContent: 'center',
