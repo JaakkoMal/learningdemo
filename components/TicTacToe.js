@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet, Pressable, Button } from 'react-native'
+import { View, Text, Pressable, Button } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import styles from '../Styles'
 
 
 export default function TicTacToe() {
 
-    //const [winner, setWinner] = useState('')
+    
     const [turns, setTurns] = useState(0)                                               // turns variable keeps track of who's turn it is. 
     const [gameBoard, setGameBoard] = useState(                                         // gameboard is an array initialized to 9 elements of null.
         Array(9).fill('').map((_,i) => (null))
@@ -94,46 +94,16 @@ export default function TicTacToe() {
     <View style={styles.container}>
         <Text style={styles.title}>Tic Tac Toe</Text>
         <Text>{(turns % 2 !== 1) ? 'Your turn' : 'Machine\'s turn'}</Text>
-            <View style={gameStyles.gameboardContainer}>
+            <View style={styles.gameboardContainer}>
                 {
                     gameBoard.map((box, i) => (
-                        <Pressable style={gameStyles.box} key={i}  onPress={() => markBox(i)}>
-                        <View ><Text style={gameStyles.boxText}>{box}</Text></View>
+                        <Pressable style={styles.box} key={i}  onPress={() => markBox(i)}>
+                        <View ><Text style={styles.boxText}>{box}</Text></View>
                         </Pressable>
                     ))
                 }
             </View>
             <Button title="reset" onPress={resetGameBoard} />
-            {/*<Text>{(turns %2 !== 1 && winner) && 'You won!'}{(turns %2 === 1 && winner) && 'Machine won!'}</Text>*/}
     </View>
   )
 }
-
-const gameStyles = StyleSheet.create({
-    gameboardContainer: {
-        marginTop: 20,
-        marginBottom: 20,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        width: 362,
-        height: 362,
-        borderWidth: 1,
-        borderColor: '#000',
-        shadowOffset: {width: 1, height: 1},
-        shadowRadius: 2,
-        shadowOpacity: 0.35
-    },
-    box: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 120,
-        height: 120,
-        borderColor: '#000',
-        borderWidth: 1,
-        backgroundColor: '#fff'
-    },
-    boxText: {
-        fontSize: 48,
-        fontWeight: 'bold',
-    }
-})

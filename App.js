@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -7,16 +6,16 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import HomeScreen from './components/HomeScreen'
 import TicTacToe from './components/TicTacToe'
-import MapScreen from './components/MapScreen'
+import TravelNavigator from './components/TravelNavigator'
 
 export default function App() {
 
-  const Stack = createBottomTabNavigator();
+  const TabStack = createBottomTabNavigator();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen 
+      <TabStack.Navigator>
+        <TabStack.Screen 
         name='Home' 
         component={HomeScreen}
         options={{
@@ -25,7 +24,7 @@ export default function App() {
             <Entypo name='home' size={24} />
           )
         }} />
-        <Stack.Screen 
+        <TabStack.Screen 
         name='TicTacToe' 
         component={TicTacToe}
         options={{
@@ -34,25 +33,16 @@ export default function App() {
             <MaterialCommunityIcons name='grid' size={24} />
           )
         }} />
-        <Stack.Screen 
-        name='Map' 
-        component={MapScreen}
+        <TabStack.Screen 
+        name='Travel' 
+        component={TravelNavigator}
         options={{
-          tabBarLabel: 'Me on map',
+          headerShown: false,
           tabBarIcon: () => (
             <Entypo name='globe' size={24} />
           )
         }} />
-      </Stack.Navigator>
+      </TabStack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
