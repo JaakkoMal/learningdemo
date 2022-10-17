@@ -1,40 +1,17 @@
-import { View, Text, ScrollView, TextInput, Button, StyleSheet } from 'react-native'
+import { View, Text, TextInput, Button, Pressable } from 'react-native'
 import React, { useState } from 'react'
+import styles from '../Styles'
 
 export default function TravelScreen({navigation}) {
 
   const [airport, setAirport] = useState('')
 
-  const checkFlights = () => {
-    navigation.navigate('TravelList', {airport : airport})
-  }
-
   return (
-    <View>
-        <View style={styles.formContainer}>
+    <View style={styles.container}>
+        <Text style={styles.title}>Departing flights</Text>
         <Text style={styles.formTitle}>Type in the airport IATA code</Text>
         <TextInput style={styles.inputField} placeholder="eg. HEL, OUL, KUO, TMP, TKU" onChangeText={text => setAirport(text)}/>
-        <Button title="Submit" onPress={checkFlights}/>
-        </View>
+        <Button title="Submit" onPress={() => navigation.navigate('TravelList', {airport : airport})}/>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    formContainer: {
-        padding: 20,
-    },
-    formTitle: {
-        fontSize: 24,
-        marginBottom: 20
-    },
-    inputField: {
-        fontSize: 20,
-        borderBottomWidth: 1,
-        borderBottomColor: '#000',
-        marginBottom: 10
-    }
-})

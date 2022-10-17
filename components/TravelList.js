@@ -40,13 +40,16 @@ export default function TravelList({navigation, route}) {
   if(error){
     return (
         <View style={styles.container}>
-            <Text>{error.message}</Text>
+            <Text style={styles.flightInfoTitle}>O'oh, spaghettios!</Text>
+            <Text style={styles.flightInfoText}>
+                Entered IATA code does not exist or is outside Finland
+            </Text>
         </View>
     )
   } else if (!isLoaded){
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Retrieving flights...</Text>
+            <Text style={styles.flightInfoTitle}>Retrieving flights...</Text>
             <ActivityIndicator size='large' animating={true} />
         </View>
     )

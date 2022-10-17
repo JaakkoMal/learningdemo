@@ -6,7 +6,7 @@ import styles from '../Styles'
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>HomeScreen</Text>
+      <Text style={styles.title}>Learning Demo</Text>
     </View>
   )
 }

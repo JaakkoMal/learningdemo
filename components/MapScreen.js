@@ -26,6 +26,7 @@ export default function MapScreen({route}) {
     })
   }, [route.params?.destination])
 
+
   if(!isLoaded){
     return (
       <View>

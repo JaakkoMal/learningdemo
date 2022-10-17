@@ -10,6 +10,7 @@ export default StyleSheet.create({
     title: {
         fontSize: 36,
         fontWeight: 'bold',
+        color: '#031073'
     },
     gameboardContainer: {
         marginTop: 20,
@@ -58,5 +59,30 @@ export default StyleSheet.create({
     },
     scrollView: {
         width: '100%'
+    },
+    formContainer: {
+        padding: 20,
+    },
+    formTitle: {
+        fontSize: 24,
+        margin: 20,
+        color: '#031073'
+    },
+    inputField: {
+        fontSize: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#000',
+        marginBottom: 10,
+        width: '70%'
+    },
+    modal: {
+        marginTop: 300,
+        padding: 20,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        shadowOffset: {width: 1, height: 1},
+        shadowRadius: 2,
+        shadowOpacity: 0.65
     }
 })
