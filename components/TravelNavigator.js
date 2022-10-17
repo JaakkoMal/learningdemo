@@ -14,6 +14,8 @@ export default function TravelNavigator() {
           name="TravelScreen"
           component={TravelScreen}
           options={{
+            headerStyle: {backgroundColor: '#031073'},
+            headerTitleStyle: {color: '#edeff5'},
             title: "Find a journey",
             headerTitle: "Find a journey"
           }}
@@ -22,6 +24,8 @@ export default function TravelNavigator() {
           name="TravelList" 
           component={TravelList}
           options={{
+            headerStyle: {backgroundColor: '#031073'},
+            headerTitleStyle: {color: '#edeff5'},
             title: "Flight list",
             headerTitle: "Flight list"
           }}
@@ -30,6 +34,8 @@ export default function TravelNavigator() {
           name="TravelMap"
           component={MapScreen}
           options={{
+            headerStyle: {backgroundColor: '#031073'},
+            headerTitleStyle: {color: '#edeff5'},
             title: "Map",
             headerTitle: "Map"
           }}

@@ -4,7 +4,7 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 40,
-        backgroundColor: '#f7ecc1',
+        backgroundColor: '#edeff5',
         alignItems: 'center',
     },
     title: {
@@ -84,5 +84,23 @@ export default StyleSheet.create({
         shadowOffset: {width: 1, height: 1},
         shadowRadius: 2,
         shadowOpacity: 0.65
-    }
+    },
+    customButton: {
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 12,
+        marginTop: 24,
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingRight: 12,
+        paddingLeft: 12,
+        backgroundColor: '#031073',
+        shadowOffset: {width: 2, height: 2},
+        shadowRadius: 1,
+        shadowOpacity: 0.45,
+      },
+      buttonText: {
+        fontSize: 16,
+        color: '#edeff5'
+      }
 })
