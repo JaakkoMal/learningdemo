@@ -3,11 +3,11 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 40,
         backgroundColor: '#edeff5',
         alignItems: 'center',
     },
     title: {
+        marginTop: 40,
         fontSize: 36,
         fontWeight: 'bold',
         color: '#031073'
@@ -30,7 +30,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         width: 120,
         height: 120,
-        borderColor: '#000',
+        borderColor: '#031073',
         borderWidth: 1,
         backgroundColor: '#fff'
     },
@@ -44,12 +44,20 @@ export default StyleSheet.create({
         alignItems: 'center',
         borderWidth: 1,
         padding: 10,
+        backgroundColor: '#f7f7f7',
         borderColor: '#031073',
         borderRadius: 5,
         marginBottom: 5,
+        marginRight: 5,
+        marginLeft: 5,
+        marginTop: 5,
+        shadowOffset: {width: 1, height: 1},
+        shadowRadius: 1,
+        shadowOpacity: 0.15
     },
     flightInfoTitle: {
         fontSize: 36,
+        fontWeight: 'bold',
         color: '#031073'
     },
     flightInfoText: {
@@ -95,9 +103,9 @@ export default StyleSheet.create({
         paddingRight: 12,
         paddingLeft: 12,
         backgroundColor: '#031073',
-        shadowOffset: {width: 2, height: 2},
+        shadowOffset: {width: 1, height: 1},
         shadowRadius: 1,
-        shadowOpacity: 0.45,
+        shadowOpacity: 0.15,
       },
       buttonText: {
         fontSize: 16,

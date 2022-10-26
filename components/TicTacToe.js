@@ -1,6 +1,7 @@
 import { View, Text, Pressable, Button } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import styles from '../Styles'
+import CustomButton from './CustomButton'
 
 
 export default function TicTacToe() {
@@ -103,7 +104,10 @@ export default function TicTacToe() {
                     ))
                 }
             </View>
-            <Button title="reset" onPress={resetGameBoard} />
+            <Pressable onPress={resetGameBoard}>
+                {(state) => <CustomButton pressed={state.pressed} buttonText="Reset game"/>}
+            </Pressable>
+            {/*<Button title="reset" onPress={resetGameBoard} />*/}
     </View>
   )
 }

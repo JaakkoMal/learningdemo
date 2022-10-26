@@ -1,6 +1,7 @@
-import { View, Text, Button, ScrollView, StyleSheet, ActivityIndicator } from 'react-native'
+import { View, Text, Pressable, ScrollView, StyleSheet, ActivityIndicator } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { parseString } from 'react-native-xml2js'
+import CustomButton from './CustomButton'
 import uuid from 'react-native-uuid'
 import styles from '../Styles'
 
@@ -61,11 +62,14 @@ export default function TravelList({navigation, route}) {
                 <View style={styles.flightInfoBox} key={uuid.v4()}>
                     <Text style={styles.flightInfoTitle}>Flight {flight.fltnr}</Text>
                     <Text style={styles.flightInfoText}>Departure date: {flight.sdt.toString().slice(0,10)}</Text>
-                    <Text style={styles.flightInfoText}>Departure time: {flight.sdt.toString().slice(11)}</Text>
-                    <Text style={styles.flightInfoText}>Departure airport: {flight.h_apt}</Text>
+                    <Text style={styles.flightInfoText}>Departure time: {flight.sdt.toString().slice(11, 19)} UTC</Text>
+                    <Text style={styles.flightInfoText}>Aircraft type: {flight.actype}</Text>
                     <Text style={styles.flightInfoText}>Destination: {flight.route_1} / {flight.route_n_1}</Text>
                     <Text style={styles.flightInfoText}>Departure gate: {flight.gate}</Text>
-                    <Button title="Show destination on map" onPress={() => navigation.navigate('TravelMap', {destination : flight.route_n_1})}/>
+                    <Pressable onPress={() => navigation.navigate('TravelMap', {destination : flight.route_n_1})}>
+                        {(state) => <CustomButton pressed={state.pressed} buttonText="Show destination on map"/>}
+                    </Pressable>
+                    {/*<Button title="Show destination on map" onPress={() => navigation.navigate('TravelMap', {destination : flight.route_n_1})}/>*/}
                 </View>
             ))}         
           </ScrollView>
