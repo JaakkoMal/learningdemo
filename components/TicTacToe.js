@@ -1,12 +1,15 @@
-import { View, Text, Pressable, Button } from 'react-native'
+import { View, Text, Pressable, Modal } from 'react-native'
 import React, { useState, useEffect } from 'react'
+import { useFonts } from 'expo-font'
 import styles from '../Styles'
 import CustomButton from './CustomButton'
 
 
 export default function TicTacToe() {
-
-    
+    const [loadedFont] = useFonts({
+        BungeeSpice: require('../assets/fonts/BungeeSpice-Regular.ttf')
+    })
+    const [winner, setWinner] = useState(false)
     const [turns, setTurns] = useState(0)                                               // turns variable keeps track of who's turn it is. 
     const [gameBoard, setGameBoard] = useState(                                         // gameboard is an array initialized to 9 elements of null.
         Array(9).fill('').map((_,i) => (null))
@@ -20,11 +23,11 @@ export default function TicTacToe() {
         } 
         if(isWon){                                                                      // If a winner is declared, an if clause checks if turns variable holds an even value or an odd value
             if(turns % 2 !== 0){                                                        // and an alert is shown to user.
-                alert("You won the game!")
+                setWinner(true)
             } else {
-                alert("The robotic uprising of 2022 has begun! The machine is the victor!")
+                setWinner(true)
             }
-            setTimeout(() => resetGameBoard(), 1000)                                    // setTimeout used here, so the board doesn't clear too quickly.
+            //setTimeout(() => resetGameBoard(), 1000)                                    // setTimeout used here, so the board doesn't clear too quickly.
         }
     }, [gameBoard])                                                                     // useEffect is run every time the gameboard changes
     
@@ -89,8 +92,12 @@ export default function TicTacToe() {
     const resetGameBoard = () => {
         setTurns(0)
         setGameBoard(Array(9).fill('').map((_,i) => (null)))
+        setWinner(false)
     }
 
+    if(!loadedFont){
+        return null
+    } else {
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Tic Tac Toe</Text>
@@ -107,7 +114,23 @@ export default function TicTacToe() {
             <Pressable onPress={resetGameBoard}>
                 {(state) => <CustomButton pressed={state.pressed} buttonText="Reset game"/>}
             </Pressable>
-            {/*<Button title="reset" onPress={resetGameBoard} />*/}
+            <Modal
+            animationType='slide'
+            transparent={true}
+            visible={winner}
+            >
+            <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                <Text style={[styles.flightInfoTitle, {fontFamily: 'BungeeSpice'}]}>
+                    {(turns % 2 === 1) ? "YOU WON!" : "MACHINE WON!"}
+                </Text>
+                <Pressable style={styles.modalCloseButton} onPress={resetGameBoard}>
+                    <Text style={styles.modalCloseButtonText}>close</Text>
+                </Pressable>
+                </View>
+            </View>
+            </Modal>
     </View>
   )
+}
 }
