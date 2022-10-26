@@ -110,5 +110,46 @@ export default StyleSheet.create({
       buttonText: {
         fontSize: 16,
         color: '#edeff5'
+      },
+      infoButton: {
+        margin: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 30,
+        height: 30,
+        borderColor: '#031073',
+        borderWidth: 2,
+        borderRadius: 50
+      },
+      infoButtonText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#031073'
+      },
+      centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      modalView: {
+        margin: 20,
+        padding: 20,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+      },
+      modalCloseButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomWidth: 1
+      },
+      modalCloseButtonText: {
+        fontSize: 16,
+        color: '#031073',
+        paddingTop: 20
       }
 })
