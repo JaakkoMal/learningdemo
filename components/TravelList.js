@@ -79,19 +79,3 @@ export default function TravelList({navigation, route}) {
   }
   
 }
-
-/*const styles = StyleSheet.create({
-    fltContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderBottomWidth: 1,
-        padding: 10,
-        borderBottomColor: '#000'
-    },
-    title: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 10
-    }
-})*/
