@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import TravelScreen from './TravelScreen'
 import TravelList from './TravelList'
@@ -8,6 +8,7 @@ import MapScreen from './MapScreen'
 export default function TravelNavigator() {
 
     const Stack = createNativeStackNavigator()
+    
   return (
     <Stack.Navigator initialRouteName="TravelScreen">
         <Stack.Screen

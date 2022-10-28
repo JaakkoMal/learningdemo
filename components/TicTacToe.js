@@ -14,6 +14,9 @@ export default function TicTacToe() {
     const [gameBoard, setGameBoard] = useState(                                         // gameboard is an array initialized to 9 elements of null.
         Array(9).fill('').map((_,i) => (null))
     )
+    const [userWins, setUserWins] = useState(0)
+    const [machineWins, setMachineWins] = useState(0)
+    const [winPercentage, setWinPercentage] = useState(0)
     
     useEffect(() => {                                                                   
         let isWon = hasWinner(gameBoard)                                                // After each turn, in useEffect, hasWinner function is called to see if the 
@@ -24,11 +27,21 @@ export default function TicTacToe() {
         if(isWon){                                                                      // If a winner is declared, an if clause checks if turns variable holds an even value or an odd value
             if(turns % 2 !== 0){                                                        // and an alert is shown to user.
                 setWinner(true)
+                setUserWins(userWins + 1)
             } else {
                 setWinner(true)
+                setMachineWins(machineWins + 1)
             }
             //setTimeout(() => resetGameBoard(), 1000)                                    // setTimeout used here, so the board doesn't clear too quickly.
         }
+
+        if(userWins > 0 || machineWins > 0){
+            let currentPercentage = userWins / (userWins + machineWins) * 100
+            setWinPercentage(currentPercentage)
+        } else {
+            setWinPercentage(0)
+        }
+        
     }, [gameBoard])                                                                     // useEffect is run every time the gameboard changes
     
 
@@ -114,6 +127,8 @@ export default function TicTacToe() {
             <Pressable onPress={resetGameBoard}>
                 {(state) => <CustomButton pressed={state.pressed} buttonText="Reset game"/>}
             </Pressable>
+            <Text style={styles.flightInfoTitle}>Win percentage</Text>
+            <Text style={styles.formTitle}>{winPercentage.toFixed(2)}%</Text>
             <Modal
             animationType='slide'
             transparent={true}
