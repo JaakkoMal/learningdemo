@@ -1,4 +1,4 @@
-import { View, Text, Pressable, ScrollView, StyleSheet, ActivityIndicator } from 'react-native'
+import { View, Text, Pressable, ScrollView, Button, ActivityIndicator } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { parseString } from 'react-native-xml2js'
 import CustomButton from './CustomButton'
@@ -69,7 +69,7 @@ export default function TravelList({navigation, route}) {
                     <Pressable onPress={() => navigation.navigate('TravelMap', {destination : flight.route_n_1})}>
                         {(state) => <CustomButton pressed={state.pressed} buttonText="Show destination on map"/>}
                     </Pressable>
-                    {/*<Button title="Show destination on map" onPress={() => navigation.navigate('TravelMap', {destination : flight.route_n_1})}/>*/}
+                    <Button title="Favorite" onPress={() => route.params?.setFavorite(flight)} />
                 </View>
             ))}         
           </ScrollView>

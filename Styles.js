@@ -151,5 +151,11 @@ export default StyleSheet.create({
         fontSize: 16,
         color: '#031073',
         paddingTop: 20
+      },
+      favoriteBox: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#edeff5'
       }
 })
