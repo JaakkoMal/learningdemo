@@ -4,7 +4,6 @@ import { useFonts } from 'expo-font'
 import styles from '../Styles'
 import CustomButton from './CustomButton'
 
-
 export default function TicTacToe() {
     const [loadedFont] = useFonts({
         BungeeSpice: require('../assets/fonts/BungeeSpice-Regular.ttf')

@@ -154,8 +154,32 @@ export default StyleSheet.create({
       },
       favoriteBox: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#edeff5'
+        justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
+        backgroundColor: '#edeff5',
+        borderWidth: 1,
+        borderColor: '#031073',
+        borderRadius: 5,
+        marginBottom: 2
+      },
+      favoriteHeading: {
+        fontSize: 36,
+        fontWeight: 'bold',
+        color: '#031073',
+        marginBottom: 24,
+        borderBottomWidth: 1,
+        borderBottomColor: '#031073'
+      },
+      favoriteText: {
+        fontSize: 24,
+        color: '#031073',
+        margin: 24
+      },
+      favoriteRemove: {
+        fontSize: 16,
+        color: '#031073',
+        marginLeft: 32,
+        marginRight: 5,
+        marginTop: 31
       }
 })
