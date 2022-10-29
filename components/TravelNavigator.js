@@ -1,5 +1,4 @@
-import { View, Text } from 'react-native'
-import React, { useState } from 'react'
+import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import TravelScreen from './TravelScreen'
 import TravelList from './TravelList'
@@ -17,8 +16,8 @@ export default function TravelNavigator() {
           options={{
             headerStyle: {backgroundColor: '#031073'},
             headerTitleStyle: {color: '#edeff5'},
-            title: "Find a journey",
-            headerTitle: "Find a journey"
+            title: "Flight routes",
+            headerTitle: "Flight routes"
           }}
         />
         <Stack.Screen 
@@ -37,8 +36,8 @@ export default function TravelNavigator() {
           options={{
             headerStyle: {backgroundColor: '#031073'},
             headerTitleStyle: {color: '#edeff5'},
-            title: "Map",
-            headerTitle: "Map"
+            title: "Destination on map",
+            headerTitle: "Destination on map"
           }}
         />
     </Stack.Navigator>

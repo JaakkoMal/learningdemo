@@ -1,4 +1,4 @@
-import { View, Text, Pressable, ScrollView, Button, ActivityIndicator } from 'react-native'
+import { View, Text, Pressable, ScrollView, ActivityIndicator } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { parseString } from 'react-native-xml2js'
 import CustomButton from './CustomButton'
@@ -6,6 +6,8 @@ import uuid from 'react-native-uuid'
 import styles from '../Styles'
 
 const URL = 'https://api.finavia.fi/flights/public/v0/flights/dep/'
+const APP_KEY = 'your app key goes here...'
+const APP_ID = 'your app id goes here...'
 export default function TravelList({navigation, route}) {
     const [flights, setFlights] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
@@ -15,23 +17,19 @@ export default function TravelList({navigation, route}) {
         fetch(URL + route.params?.airport, {
             method: 'GET',
             headers: {
-                'app_id' : '88a17a43',
-                'app_key' : '6dd228e624ccc4059f5583ee7d612de3'
+                'app_id' : APP_ID,
+                'app_key' : APP_KEY
             }
         })
         .then(response => response.text())
         .then((responseText) => {
             parseString(responseText, function(err, result){
-                console.log(JSON.stringify(result))
-                //setTitle(result.flights.dep[0].body[0].flight[0].h_apt)
                 setError(null)
                 setFlights(result.flights.dep[0].body[0].flight)
                 setIsLoaded(true)
-                console.log("DEBUG: " + JSON.stringify(result.flights.dep[0].body[0].flight[0].h_apt))
             })
         })
         .catch((error) => {
-            console.log(error)
             setError(error)
             setFlights([])
             setIsLoaded(true)
@@ -49,8 +47,8 @@ export default function TravelList({navigation, route}) {
     )
   } else if (!isLoaded){
     return (
-        <View style={styles.container}>
-            <Text style={styles.flightInfoTitle}>Retrieving flights...</Text>
+        <View style={[styles.container, {justifyContent: 'center'}]}>
+            <Text style={styles.flightInfoText}>Retrieving flights...</Text>
             <ActivityIndicator size='large' animating={true} />
         </View>
     )

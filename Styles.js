@@ -157,7 +157,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'flex-start',
-        backgroundColor: '#edeff5',
+        backgroundColor: '#dce2f2',
         borderWidth: 1,
         borderColor: '#031073',
         borderRadius: 5,
