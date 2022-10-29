@@ -69,7 +69,9 @@ export default function TravelList({navigation, route}) {
                     <Pressable onPress={() => navigation.navigate('TravelMap', {destination : flight.route_n_1})}>
                         {(state) => <CustomButton pressed={state.pressed} buttonText="Show destination on map"/>}
                     </Pressable>
-                    <Button title="Favorite" onPress={() => route.params?.setFavorite(flight)} />
+                    <Pressable onPress={() => route.params?.setFavorite(flight)}>
+                        {(state) => <CustomButton pressed={state.pressed} buttonText="Add to favorites" />}
+                    </Pressable>
                 </View>
             ))}         
           </ScrollView>

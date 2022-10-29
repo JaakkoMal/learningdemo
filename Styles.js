@@ -97,6 +97,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         borderWidth: 1,
         borderRadius: 12,
+        borderColor: '#031073',
         marginTop: 24,
         paddingTop: 8,
         paddingBottom: 8,
