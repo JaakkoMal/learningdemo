@@ -4,6 +4,7 @@ import styles from '../Styles'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import CustomButton from './CustomButton'
 import InfoButton from './InfoButton'
+import InfoText from './InfoText'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const STORAGE_KEY = '@favorites_key'
@@ -15,7 +16,6 @@ export default function TravelScreen({navigation}) {
   const [favoriteChosen, setFavoriteChosen] = useState(null)
   const [favoriteRoutes, setFavoriteRoutes] = useState([])
 
-  // ASYNC
   const storeFavorites = async(value) => {
     try{
       const jsonValue = JSON.stringify(value)
@@ -103,9 +103,7 @@ export default function TravelScreen({navigation}) {
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.flightInfoText}>
-                Type in the IATA code of a Finavia airport to see scheduled departing flights for the day or leave the field empty to see all departing flights from all Finavia airports for the day.
-              </Text>
+              <InfoText />
               <Pressable style={styles.modalCloseButton} onPress={() => setShowInfo(!showInfo)}>
                 <Text style={styles.modalCloseButtonText}>close</Text>
               </Pressable>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import MapView, { Marker } from 'react-native-maps'
 
 const URL = 'http://api.positionstack.com/v1/forward?access_key='
-const access_key = '4bcaa54340d68c6a4e6ff660daeaaca3'
+const ACCESS_KEY = 'your access key goes here...'
 
 export default function MapScreen({route}) {
 
@@ -12,16 +12,14 @@ export default function MapScreen({route}) {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    console.log("Place: " + route.params?.destination)
-    fetch(URL + access_key + `&query=${route.params?.destination}` )
+    fetch(URL + ACCESS_KEY + `&query=${route.params?.destination}` )
     .then(response => response.json())
     .then(res => {
-      console.log(res.data[0].latitude)
-      console.log(res.data[0].longitude)
       setLat(res.data[0].latitude)
       setLng(res.data[0].longitude)
       setIsLoaded(true)
     }, (error) => {
+      alert('something went wrong..')
       console.log(error)
     })
   }, [route.params?.destination])
@@ -29,8 +27,8 @@ export default function MapScreen({route}) {
 
   if(!isLoaded){
     return (
-      <View>
-        <Text>Retrieving location...</Text>
+      <View style={styles.container}>
+        <Text style={styles.text}>Retrieving location...</Text>
         <ActivityIndicator size="large" animating={true} />
       </View>
     )
@@ -58,5 +56,16 @@ const styles = StyleSheet.create({
   map: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#edeff5',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  text: {
+    fontSize: 16,
+    color: '#031073',
+    marginBottom: 2
   }
 })
