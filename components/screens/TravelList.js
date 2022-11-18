@@ -1,13 +1,14 @@
 import { View, Text, Pressable, ScrollView, ActivityIndicator } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { parseString } from 'react-native-xml2js'
-import CustomButton from './CustomButton'
+import CustomButton from '../customs/CustomButton'
 import uuid from 'react-native-uuid'
-import styles from '../Styles'
+import styles from '../../Styles'
 
 const URL = 'https://api.finavia.fi/flights/public/v0/flights/dep/'
-const APP_KEY = 'your app key goes here...'
-const APP_ID = 'your app id goes here...'
+const APP_KEY = 'Your app key here...'
+const APP_ID = 'Your app id here...'
+
 export default function TravelList({navigation, route}) {
     const [flights, setFlights] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
@@ -30,6 +31,7 @@ export default function TravelList({navigation, route}) {
             })
         })
         .catch((error) => {
+            console.log(error)
             setError(error)
             setFlights([])
             setIsLoaded(true)

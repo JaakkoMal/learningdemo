@@ -1,12 +1,12 @@
 import { View, Text, Pressable, Modal } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFonts } from 'expo-font'
-import styles from '../Styles'
-import CustomButton from './CustomButton'
+import styles from '../../Styles'
+import CustomButton from '../customs/CustomButton'
 
 export default function TicTacToe() {
     const [loadedFont] = useFonts({
-        BungeeSpice: require('../assets/fonts/BungeeSpice-Regular.ttf')
+        BungeeSpice: require('../../assets/fonts/BungeeSpice-Regular.ttf')
     })
     const [winner, setWinner] = useState(false)
     const [turns, setTurns] = useState(0)                                               

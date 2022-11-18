@@ -1,8 +1,8 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import TravelScreen from './TravelScreen'
-import TravelList from './TravelList'
-import MapScreen from './MapScreen'
+import TravelScreen from '../screens/TravelScreen'
+import TravelList from '../screens/TravelList'
+import MapScreen from '../screens/MapScreen'
 
 export default function TravelNavigator() {
 

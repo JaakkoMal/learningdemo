@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import MapView, { Marker } from 'react-native-maps'
 
 const URL = 'http://api.positionstack.com/v1/forward?access_key='
-const ACCESS_KEY = 'your access key goes here...'
+const ACCESS_KEY = 'Your access key here...'
 
 export default function MapScreen({route}) {
 
