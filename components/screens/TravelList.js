@@ -6,8 +6,8 @@ import uuid from 'react-native-uuid'
 import styles from '../../Styles'
 
 const URL = 'https://api.finavia.fi/flights/public/v0/flights/dep/'
-const APP_KEY = '64f867903cf555ea0674fdb4cd8bc7c2'
-const APP_ID = '88a17a43'
+const APP_KEY = 'Your app key here...'
+const APP_ID = 'Your app id here...'
 
 export default function TravelList({navigation, route}) {
     const [flights, setFlights] = useState([])
