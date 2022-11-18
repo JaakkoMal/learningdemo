@@ -1,4 +1,7 @@
 # learningdemo
+
+Link to demo video: https://youtu.be/czPLF6DV6u8
+
 This application doesn't make much sense and it's sole purpose is to demonstrate some of the things I've learned during the course IN00CT08-3003.
 The application is created with create-expo-app and it is optimized for iOS and tested with an iPhone XR using Expo Go. No optimizing or testing done with Android.
 
